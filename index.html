@@ -1,0 +1,810 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+  <meta name="design_doc_mode" content="page">
+  <style>
+    body { margin: 0; background: #F8F6F2; }
+    a { color: #2a5d8c; text-decoration: none; }
+    a:hover { color: #d97941; }
+    ::selection { background: #d97941; color: white; }
+    @media (max-width: 860px) {
+      [data-grid="hero"] { grid-template-columns: 1fr !important; }
+      [data-grid="cols-4"] { grid-template-columns: repeat(2, 1fr) !important; }
+      [data-grid="cols-3"] { grid-template-columns: 1fr !important; }
+      [data-grid="detail"] { grid-template-columns: 1fr !important; }
+      [data-grid="cols-2"] { grid-template-columns: 1fr !important; }
+      [data-grid="detail"] [data-detail-image] { order: -1 !important; height: 260px !important; }
+      [data-grid="footer"] { grid-template-columns: repeat(2, 1fr) !important; }
+    }
+    @media (max-width: 520px) {
+      [data-grid="cols-4"] { grid-template-columns: 1fr !important; }
+      [data-grid="footer"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+</helmet>
+
+<div style="font-family: -apple-system, 'Segoe UI', sans-serif; color: #0F1823; background: #F8F6F2; min-height: 100vh;">
+
+  <!-- ===================== NAV ===================== -->
+  <div style="position: sticky; top: 0; z-index: 100; background: rgba(248,246,242,0.96); backdrop-filter: blur(8px); border-bottom: 1px solid rgba(15,24,35,0.1);">
+    <div style="max-width: 1200px; margin: 0 auto; padding: 16px 24px; display: flex; align-items: center; justify-content: space-between; gap: 16px;">
+      <div style="display: flex; align-items: baseline; gap: 8px;">
+        <span style="font-family: Georgia, serif; font-weight: 900; font-size: 38px; letter-spacing: 0.5px; color: #0F1823;">VoltEdge</span>
+        <span style="font-family: Georgia, serif; font-weight: 900; font-size: 38px; color: #d97941;">Intelligence</span>
+      </div>
+      <a href="{{ telHref }}" style="background: #0F1823; color: white; font-size: 13px; font-weight: 700; padding: 10px 18px; border-radius: 6px; white-space: nowrap;" style-hover="background: #d97941;">Schedule a Call</a>
+    </div>
+    <div style="max-width: 1200px; margin: 0 auto; padding: 0 24px 12px; display: flex; gap: 20px; overflow-x: auto;">
+      <a href="#tx" style="font-size: 13px; font-weight: 600; color: #2a5d8c; white-space: nowrap;">VoltEdge Shakti</a>
+      <a href="#pq" style="font-size: 13px; font-weight: 600; color: #1a5d2e; white-space: nowrap;">Power Quality</a>
+      <a href="#variq" style="font-size: 13px; font-weight: 600; color: #1a3d52; white-space: nowrap;">VoltEdge Variq</a>
+      <a href="#solar" style="font-size: 13px; font-weight: 600; color: #b8860b; white-space: nowrap;">VoltEdge Sol</a>
+      <a href="#sw" style="font-size: 13px; font-weight: 600; color: #5db0c0; white-space: nowrap;">VoltEdge Dhara</a>
+      <a href="#epc" style="font-size: 13px; font-weight: 600; color: #5b2a8c; white-space: nowrap;">VoltEdge Path</a>
+      <a href="#founder" style="font-size: 13px; font-weight: 600; color: #0F1823; white-space: nowrap;">Founder</a>
+      <a href="#how-it-works" style="font-size: 13px; font-weight: 600; color: #0F1823; white-space: nowrap;">How it works</a>
+      <a href="#contact" style="font-size: 13px; font-weight: 600; color: #0F1823; white-space: nowrap;">Contact</a>
+    </div>
+  </div>
+
+  <!-- ===================== HERO ===================== -->
+  <div style="background: linear-gradient(135deg, #1a2e3e 0%, #2a3f50 50%, #1a2e3e 100%); color: white; padding: 72px 24px 64px;">
+    <div data-grid="hero" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 56px; align-items: center;">
+      <div data-hero-text="true" style="opacity: 0; transform: translateY(18px); transition: opacity 0.7s ease, transform 0.7s ease;">
+        <div style="display: inline-block; background: rgba(217,121,65,0.15); border: 1px dashed #2d8fa3; color: #2d8fa3; font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; padding: 6px 12px; border-radius: 5px; margin-bottom: 20px; white-space: nowrap;">30 Years of Expertise, Automated</div>
+        <div style="font-family: Georgia, serif; font-size: 46px; line-height: 1.15; font-weight: 700; margin-bottom: 18px;">
+          Design electrical equipment faster — with 30 years of expertise built in.
+        </div>
+        <div style="font-size: 18px; line-height: 1.6; color: rgba(255,255,255,0.88); max-width: 540px; margin-bottom: 32px;">
+          VoltEdge turns DGA diagnostics, BEE Star certification, power-quality proposals, and tender research from weeks of manual work into hours — applying your own standards, pricing, and playbook automatically.
+        </div>
+        <div style="display: flex; gap: 14px; flex-wrap: wrap;">
+          <a href="{{ telHref }}" style="background: #d97941; color: white; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 7px; transition: background 0.2s ease, transform 0.2s ease;" style-hover="background: #b8860b; transform: translateY(-2px);">Schedule a Call</a>
+          <a href="#products" style="background: transparent; border: 1.5px solid rgba(255,255,255,0.4); color: white; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 7px; transition: border-color 0.2s ease, color 0.2s ease, transform 0.2s ease;" style-hover="border-color: #2d8fa3; color: #2d8fa3; transform: translateY(-2px);">See the Products</a>
+        </div>
+      </div>
+      <div data-hero-image="true" style="opacity: 0; transform: translateY(18px) scale(0.98); transition: opacity 0.8s ease 0.15s, transform 0.8s ease 0.15s; width: 100%; height: 360px; border-radius: 10px; overflow: hidden; border: 2px solid rgba(217,121,65,0.5); box-shadow: 0 20px 60px rgba(0,0,0,0.35);">
+        <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a4d5f, #1a3d52); display: flex; align-items: center; justify-content: center; position: relative;">
+          <div style="color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; padding: 20px;">images/hero-dashboard.jpg</div>
+          <img src="images/hero-dashboard.jpg" alt="VoltEdge dashboard" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'"/>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== EXPERTISE STRIP ===================== -->
+  <div style="background: #0F1823; padding: 18px 24px; border-bottom: 1px solid rgba(255,255,255,0.08);">
+    <div style="max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: center; gap: 10px; flex-wrap: wrap; text-align: center;">
+      <span style="font-size: 13px; font-weight: 700; color: #d97941;">30 years</span>
+      <span style="font-size: 13px; color: rgba(255,255,255,0.75);">of electrical equipment design experience — transformers, power quality, switchgear, panels, and solar — built into every VoltEdge product.</span>
+    </div>
+  </div>
+
+  <!-- ===================== PROBLEM CARDS ===================== -->
+  <div style="max-width: 1200px; margin: 0 auto; padding: 72px 24px;">
+    <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 8px;">Manual engineering is costing you bids.</div>
+    <div style="font-size: 16px; color: #4b5563; max-width: 640px; margin-bottom: 40px;">Three problems compound across every quote. VoltEdge is built to remove all of them at once.</div>
+    <div data-grid="cols-4" style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;">
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; background: white; border: 1px solid rgba(15,24,35,0.08); border-radius: 10px; padding: 24px;">
+        <div style="font-size: 26px; margin-bottom: 12px;">⏳</div>
+        <div style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Designs take weeks</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">DGA interpretation, BEE Star loss calculations, and IEC-compliant specs are built by hand, quote by quote.</div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.08s, transform 0.6s ease 0.08s; background: white; border: 1px solid rgba(15,24,35,0.08); border-radius: 10px; padding: 24px;">
+        <div style="font-size: 26px; margin-bottom: 12px;">🏛️</div>
+        <div style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Tenders get missed</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">Government and DISCOM tenders are scattered across dozens of portals — most never reach your desk in time.</div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.16s, transform 0.6s ease 0.16s; background: white; border: 1px solid rgba(15,24,35,0.08); border-radius: 10px; padding: 24px;">
+        <div style="font-size: 26px; margin-bottom: 12px;">📉</div>
+        <div style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">Margins get squeezed</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">CRGO, copper, and aluminum prices shift daily. Manual costing means bids go out on stale numbers.</div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.24s, transform 0.6s ease 0.24s; background: linear-gradient(135deg, #1a2e3e, #2a3f50); border-radius: 10px; padding: 24px; color: white;">
+        <div style="font-size: 26px; margin-bottom: 12px;">🔄</div>
+        <div style="font-size: 16px; font-weight: 700; margin-bottom: 8px;">VoltEdge runs it autonomously</div>
+        <div style="font-size: 14px; color: rgba(255,255,255,0.85); line-height: 1.5;">Your standards, your pricing, your playbook — applied to every design and every bid, automatically.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PRODUCT OVERVIEW GRID ===================== -->
+  <div id="products" style="max-width: 1200px; margin: 0 auto; padding: 24px 24px 72px;">
+    <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 8px;">Six products. Each with a knowledge base built for your company.</div>
+    <div style="font-size: 16px; color: #4b5563; max-width: 640px; margin-bottom: 40px;">Every VoltEdge product is trained separately on that domain's standards — then tailored to your specs, pricing, and playbook. No shared or generic knowledge base.</div>
+    <div data-grid="cols-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+
+      <a href="#tx" data-reveal-fade="true" style="opacity: 0; transition: opacity 0.6s ease, box-shadow 0.2s ease, transform 0.2s ease; display: block; background: white; border: 1.5px solid rgba(42,93,140,0.25); border-top: 4px solid #2a5d8c; border-radius: 10px; padding: 28px; color: #0F1823;" style-hover="box-shadow: 0 12px 32px rgba(42,93,140,0.18); transform: translateY(-6px);">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #2a5d8c; margin-bottom: 10px;">Transformer Intelligence</div>
+        <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; margin-bottom: 10px;">🔋 VoltEdge Shakti</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5; margin-bottom: 18px;">DGA diagnostics, BEE Star loss calculation, IEC 60076 spec building, and DISCOM tender intelligence — for transformer manufacturers.</div>
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+          <div style="background: rgba(42,93,140,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #2a5d8c;">70% time saved</div>
+          <div style="background: rgba(217,121,65,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #d97941;">+50% win ratio</div>
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: #2a5d8c;">View details →</div>
+      </a>
+
+      <a href="#pq" data-reveal-fade="true" style="opacity: 0; transition: opacity 0.6s ease 0.08s, box-shadow 0.2s ease, transform 0.2s ease; display: block; background: white; border: 1.5px solid rgba(26,93,46,0.25); border-top: 4px solid #1a5d2e; border-radius: 10px; padding: 28px; color: #0F1823;" style-hover="box-shadow: 0 12px 32px rgba(26,93,46,0.18); transform: translateY(-6px);">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1a5d2e; margin-bottom: 10px;">Power Quality Intelligence</div>
+        <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; margin-bottom: 10px;">⚡ VoltEdge Vidyut</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5; margin-bottom: 18px;">Power factor penalty quantification, APFC/SVG design, ROI proof, and 50+ government tenders — for capacitor and power quality manufacturers.</div>
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+          <div style="background: rgba(26,93,46,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #1a5d2e;">65% time saved</div>
+          <div style="background: rgba(232,81,32,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #e85120;">+45% win ratio</div>
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: #1a5d2e;">View details →</div>
+      </a>
+
+      <a href="#variq" data-reveal-fade="true" style="opacity: 0; transition: opacity 0.6s ease 0.16s, box-shadow 0.2s ease, transform 0.2s ease; display: block; background: white; border: 1.5px solid rgba(26,61,82,0.25); border-top: 4px solid #1a3d52; border-radius: 10px; padding: 28px; color: #0F1823;" style-hover="box-shadow: 0 12px 32px rgba(26,61,82,0.18); transform: translateY(-6px);">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1a3d52; margin-bottom: 10px;">Electrical Equipment Intelligence</div>
+        <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; margin-bottom: 10px;">⚡ VoltEdge Variq</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5; margin-bottom: 18px;">Proposal generation, harmonics &amp; detuning, raw material cost optimization, and international market mapping — for electrical equipment manufacturers.</div>
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+          <div style="background: rgba(26,61,82,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #1a3d52;">60% time saved</div>
+          <div style="background: rgba(217,121,65,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #d97941;">+40% win ratio</div>
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: #1a3d52;">View details →</div>
+      </a>
+
+      <a href="#solar" data-reveal-fade="true" style="opacity: 0; transition: opacity 0.6s ease 0.24s, box-shadow 0.2s ease, transform 0.2s ease; display: block; background: white; border: 1.5px solid rgba(184,134,11,0.3); border-top: 4px solid #d97706; border-radius: 10px; padding: 28px; color: #0F1823;" style-hover="box-shadow: 0 12px 32px rgba(184,134,11,0.2); transform: translateY(-6px);">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #b8860b; margin-bottom: 10px;">Renewable Energy Intelligence</div>
+        <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; margin-bottom: 10px;">☀️ VoltEdge Sol</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5; margin-bottom: 18px;">System sizing, BESS &amp; grid design, PLI/subsidy capture, ALMM compliance, and live tender scanning — for solar EPC and manufacturers.</div>
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+          <div style="background: rgba(184,134,11,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #b8860b;">95% faster decisions</div>
+          <div style="background: rgba(16,185,129,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #10B981;">₹18–28Cr value/yr</div>
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: #b8860b;">View details →</div>
+      </a>
+
+      <a href="#sw" data-reveal-fade="true" style="opacity: 0; transition: opacity 0.6s ease 0.32s, box-shadow 0.2s ease, transform 0.2s ease; display: block; background: white; border: 1.5px solid rgba(93,176,192,0.3); border-top: 4px solid #3a4653; border-radius: 10px; padding: 28px; color: #0F1823;" style-hover="box-shadow: 0 12px 32px rgba(93,176,192,0.2); transform: translateY(-6px);">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3a4653; margin-bottom: 10px;">Switchgear &amp; Grid Intelligence</div>
+        <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; margin-bottom: 10px;">🔌 VoltEdge Dhara</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5; margin-bottom: 18px;">Relay coordination, short-circuit studies, panel design at live copper prices, and global tender discovery — for switchgear and panel builders.</div>
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+          <div style="background: rgba(58,70,83,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #3a4653;">90 sec coordination</div>
+          <div style="background: rgba(217,121,65,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #d97941;">4× quote volume</div>
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: #3a4653;">View details →</div>
+      </a>
+
+      <a href="#epc" data-reveal-fade="true" style="opacity: 0; transition: opacity 0.6s ease 0.4s, box-shadow 0.2s ease, transform 0.2s ease; display: block; background: white; border: 1.5px solid rgba(91,42,140,0.3); border-top: 4px solid #5b2a8c; border-radius: 10px; padding: 28px; color: #0F1823;" style-hover="box-shadow: 0 12px 32px rgba(91,42,140,0.18); transform: translateY(-6px);">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #5b2a8c; margin-bottom: 10px;">Engineering &amp; Project Intelligence</div>
+        <div style="font-family: Georgia, serif; font-size: 22px; font-weight: 700; margin-bottom: 10px;">🏗️ VoltEdge Path</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5; margin-bottom: 18px;">Vendor bid comparison, clause-level spec deviation flagging, single-line substation design, and technical bid evaluation — for EPC contractors and substation consultants.</div>
+        <div style="display: flex; gap: 10px; margin-bottom: 16px;">
+          <div style="background: rgba(91,42,140,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #5b2a8c;">&lt;1s calc response</div>
+          <div style="background: rgba(217,121,65,0.08); border-radius: 6px; padding: 8px 10px; font-size: 12px; font-weight: 700; color: #d97941;">24 live signals</div>
+        </div>
+        <div style="font-size: 13px; font-weight: 700; color: #5b2a8c;">View details →</div>lectrical consulting firms.</div>
+        <div style="font-size: 13px; font-weight: 700; color: #5b2a8c;">Learn more →</div>
+      </a>
+
+    </div>
+  </div>
+
+  <sc-if value="{{ showDetails }}" hint-placeholder-val="{{ true }}">
+  <!-- ===================== PRODUCT DETAIL: TX ===================== -->
+  <div id="tx" style="background: #eef3f7; padding: 72px 24px; border-top: 1px solid rgba(15,24,35,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div data-reveal="true" data-grid="detail" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #2a5d8c; margin-bottom: 10px;">🔋 VoltEdge Shakti · Transformer Intelligence</div>
+          <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 16px;">DGA diagnostics. BEE Star winning. 4 hours to win.</div>
+          <div style="font-size: 15px; color: #374151; line-height: 1.6; margin-bottom: 24px;">DGA interpretation that took weeks now takes minutes. BEE Star loss calculations go from complex spreadsheets to instant proof. Government tenders for transformers are auto-discovered — every bid, every design, winning automatically.</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px;">
+            <div style="background: white; border: 1.5px solid #2a5d8c; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #2a5d8c;">40%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Revenue Growth</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #2a5d8c; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #2a5d8c;">+50%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Productivity</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #2a5d8c; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #2a5d8c;">+50%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Win Ratio</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #2a5d8c; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #2a5d8c;">70%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Time Saved</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #2a5d8c; margin-bottom: 12px;">Full Capability Range</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;">
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🔬 DGA Oil Diagnostics</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">⭐ BEE Star Loss Calculator</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📐 Transformer Spec Builder</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">💰 CRGO/Copper Cost Modeling</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🏛️ DISCOM Tender Intelligence</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">⚔️ Competitive Intelligence</div>
+          </div>
+          <div style="background: rgba(45,143,163,0.1); border: 1.5px solid #2d8fa3; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #185a66; line-height: 1.5; margin-bottom: 20px;">
+            <strong style="color: #2d8fa3;">Compliance built in:</strong> IEC 60076 · IS 1180 · BEE Star · RDSO Railway · Defence MIL-Grade · DISCOM Protocols
+          </div>
+        </div>
+        <div data-detail-image="true" style="width: 100%; height: 420px; border-radius: 10px; overflow: hidden; border: 2px solid rgba(42,93,140,0.35);">
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a4d5f, #1a3d52); display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; padding: 20px;">images/tx-dashboard.jpg</div>
+            <img src="images/tx-dashboard.jpg" alt="VoltEdge Shakti dashboard" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PRODUCT DETAIL: PQ ===================== -->
+  <div id="pq" style="background: #eef5ee; padding: 72px 24px; border-top: 1px solid rgba(15,24,35,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div data-reveal="true" data-grid="detail" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+        <div data-detail-image="true" style="width: 100%; height: 420px; border-radius: 10px; overflow: hidden; border: 2px solid rgba(26,93,46,0.35); order: 2;">
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a4d5f, #1a3d52); display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; padding: 20px;">images/pq-dashboard.jpg</div>
+            <img src="images/pq-dashboard.jpg" alt="Power Quality dashboard" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+        <div style="order: 1;">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1a5d2e; margin-bottom: 10px;">⚡ VoltEdge Vidyut · Capacitor Intelligence Platform</div>
+          <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 16px;">50+ govt tenders. 4 hours to win.</div>
+          <div style="font-size: 15px; color: #374151; line-height: 1.6; margin-bottom: 24px;">Proposals that took months now take hours. Power factor penalties become visible, quantified, and sold. Government opportunities you never saw are now automatic.</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px;">
+            <div style="background: white; border: 1.5px solid #1a5d2e; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #1a5d2e;">35%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Revenue Growth</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #1a5d2e; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #1a5d2e;">+45%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Productivity</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #1a5d2e; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #1a5d2e;">+45%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Win Ratio</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #1a5d2e; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #1a5d2e;">65%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Time Saved</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #1a5d2e; margin-bottom: 12px;">Full Capability Range</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;">
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📊 Power Factor Analysis</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">💰 Penalty Quantifier</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🎯 APFC Spec Builder</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📈 ROI Calculator</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🏛️ Govt Tenders (50+)</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">⚔️ Competitor Intel</div>
+          </div>
+          <div style="background: rgba(45,143,163,0.1); border: 1.5px solid #2d8fa3; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #185a66; line-height: 1.5; margin-bottom: 20px;">
+            <strong style="color: #2d8fa3;">Compliance built in:</strong> IEC 60831/60871 · RDSO · Defence MIL-Grade · MSEDCL/TANGEDCO Tariff · BIS Standards · Export Compliance
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PRODUCT DETAIL: VARIQ ===================== -->
+  <div id="variq" style="background: #eaeff2; padding: 72px 24px; border-top: 1px solid rgba(15,24,35,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div data-reveal="true" data-grid="detail" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #1a3d52; margin-bottom: 10px;">⚡ VoltEdge Variq · Electrical Equipment Intelligence</div>
+          <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 16px;">50+ govt tenders. 4 hours to win.</div>
+          <div style="font-size: 15px; color: #374151; line-height: 1.6; margin-bottom: 24px;">Proposals that took months now take hours. Designs that took weeks now take minutes. Government opportunities you never saw are now automatic — and international deals open like doors.</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px;">
+            <div style="background: white; border: 1.5px solid #1a3d52; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #1a3d52;">30%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Revenue Growth</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #1a3d52; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #1a3d52;">+40%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Productivity</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #1a3d52; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #1a3d52;">+40%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Win Ratio</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #1a3d52; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #1a3d52;">60%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Time Saved</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #1a3d52; margin-bottom: 12px;">Full Product Range</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;">
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📊 Opportunities Intelligence</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🎯 Direct Sales Intel</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🌐 International Markets</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🏛️ Lead &amp; Tender Intel</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📈 EPC Bid Analyzer</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">⚔️ Competitive Intel</div>
+          </div>
+          <div style="background: rgba(45,143,163,0.1); border: 1.5px solid #2d8fa3; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #185a66; line-height: 1.5; margin-bottom: 20px;">
+            <strong style="color: #2d8fa3;">Compliance built in:</strong> IEC 60831/60871 · RDSO Railway · Defence MIL-Grade · Export (40+ countries) · CBAM/ESG Reporting · DISCOM Tariff
+          </div>
+        </div>
+        <div data-detail-image="true" style="width: 100%; height: 420px; border-radius: 10px; overflow: hidden; border: 2px solid rgba(26,61,82,0.35);">
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a4d5f, #1a3d52); display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; padding: 20px;">images/variq-dashboard.jpg</div>
+            <img src="images/variq-dashboard.jpg" alt="VoltEdge Variq dashboard" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ===================== PRODUCT DETAIL: SOLAR ===================== -->
+  <div id="solar" style="background: #fdf6e8; padding: 72px 24px; border-top: 1px solid rgba(15,24,35,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div data-reveal="true" data-grid="detail" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #b8860b; margin-bottom: 10px;">☀️ VoltEdge Sol · Renewable Energy Intelligence</div>
+          <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 16px;">₹58.5Cr in subsidy, sitting unclaimed.</div>
+          <div style="font-size: 15px; color: #374151; line-height: 1.6; margin-bottom: 24px;">One toggle in the PLI &amp; Subsidy Navigator — switching an inverter spec from imported to domestic — can swing captured subsidy by ₹16 Crore on a 25 MW project. Real calculation engines, not AI guesses: LCOE, IRR, DSCR, and string sizing all run actual formulas, refreshed live.</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px;">
+            <div style="background: white; border: 1.5px solid #b8860b; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #b8860b;">18</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">AI Modules</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #b8860b; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 18px; font-weight: 900; color: #b8860b;">₹18–28Cr</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Value / Year*</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #b8860b; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #b8860b;">95%</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Faster Decisions</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #b8860b; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #b8860b;">18</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Live RAG Files</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #b8860b; margin-bottom: 12px;">Full Capability Range</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;">
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">☀️ System Sizing &amp; Layout</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🔋 BESS Sizing &amp; Dispatch</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">💰 PLI &amp; Subsidy Navigator</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📈 PPA Financial Model</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🏛️ Live Tender Scanner</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">✅ ALMM Compliance Tracker</div>
+          </div>
+          <div style="background: rgba(45,143,163,0.1); border: 1.5px solid #2d8fa3; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #185a66; line-height: 1.5; margin-bottom: 20px;">
+            <strong style="color: #2d8fa3;">Compliance built in:</strong> ALMM · PM-KUSUM DCR · SECI/DISCOM Tenders · Grid Interconnection · Export Quality · CBAM/ESG
+          </div>
+        </div>
+        <div data-detail-image="true" style="width: 100%; height: 420px; border-radius: 10px; overflow: hidden; border: 2px solid rgba(184,134,11,0.35);">
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a4d5f, #1a3d52); display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; padding: 20px;">images/solar-dashboard.jpg</div>
+            <img src="images/solar-dashboard.jpg" alt="VoltEdge Sol dashboard" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PRODUCT DETAIL: SW ===================== -->
+  <div id="sw" style="background: #eef4f5; padding: 72px 24px; border-top: 1px solid rgba(15,24,35,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div data-reveal="true" data-grid="detail" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+        <div data-detail-image="true" style="width: 100%; height: 420px; border-radius: 10px; overflow: hidden; border: 2px solid rgba(58,70,83,0.35); order: 2;">
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a4d5f, #1a3d52); display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; padding: 20px;">images/sw-dashboard.jpg</div>
+            <img src="images/sw-dashboard.jpg" alt="VoltEdge Dhara dashboard" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+        <div style="order: 1;">
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #3a4653; margin-bottom: 10px;">🔌 VoltEdge Dhara · Switchgear &amp; Grid Intelligence</div>
+          <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 16px;">Relay coordination in 90 seconds. Computed, not guessed.</div>
+          <div style="font-size: 15px; color: #374151; line-height: 1.6; margin-bottom: 24px;">Find the deal, engineer it, price it with today's copper, write the bid, track the win, and see the margin — in one linked thread. Built on real IEC 60255-151 / 60909 / 61439 mathematics and daily tender scans across India and 4 export regions.</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px;">
+            <div style="background: white; border: 1.5px solid #3a4653; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #3a4653;">90s</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">IDMT + TCC Curves</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #3a4653; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #3a4653;">4×</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Quotes / Month</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #3a4653; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #3a4653;">50+</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Tenders Scanned Daily</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #3a4653; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #3a4653;">19</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Modules</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #3a4653; margin-bottom: 12px;">Full Capability Range</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;">
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">⚡ Protection Coordination</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">💥 Short-Circuit (IEC 60909)</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📦 Panel Designer 61439</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📋 BOM @ Live Copper</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🌏 Global Deal Finder</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📝 Technical Bid Writer</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🔍 Spec Deviation Checker</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">✅ DISCOM &amp; GeM Compliance Checker</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🌍 Export Compliance Checker</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🌐 Earthing Designer</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🔀 Switchgear &amp; Breaker Selector</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📏 CT/PT Sizing Advisor</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">☀️ Solar &amp; KUSUM Switchgear</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🧪 Type-Test Planner</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🎯 Competitor Tracker</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📊 Lead Intelligence</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🧾 Quotation Generator</div>
+          </div>
+          <div style="font-size: 12px; color: #4b5563; margin-bottom: 20px;">Grid Interconnection Advisor gets its own section below.</div>
+          <div style="background: rgba(45,143,163,0.1); border: 1.5px solid #2d8fa3; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #185a66; line-height: 1.5; margin-bottom: 20px;">
+            <strong style="color: #2d8fa3;">Compliance built in:</strong> IEC 61439-1/-2 · IEC 62271 · IEC 60255-151 · IEC 60909 · IEC 61869 · IEC 61850 · IEC 60870-5-104 · IS 3043 · IS 732 · CEA Grid Code · CEA (Distributed Generation Regulations) · CEA/DISCOM · GeM
+          </div>
+        </div>
+      </div>
+
+      <!-- Revenue thread -->
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease; margin-top: 56px; background: white; border: 1.5px solid rgba(58,70,83,0.2); border-radius: 12px; padding: 32px;">
+        <div style="font-family: Georgia, serif; font-size: 24px; font-weight: 700; margin-bottom: 12px;">Signal to Won Deal — One Linked Thread, Not Four Disconnected Tools.</div>
+        <div style="font-size: 15px; color: #374151; line-height: 1.6; margin-bottom: 20px; max-width: 780px;">Most tools show you a tender and stop there. VoltEdge Dhara turns a live tender signal into a tracked deal in one click — with the source link preserved. Generate a quote against that deal and it updates automatically. Negotiate? Create a revision — same quote number, full history. Win it, and the deal, the quote, and the margin are all still connected.</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div style="background: #eef4f5; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🔗 One-click Signal → Deal</div>
+          <div style="background: #eef4f5; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📝 Quote revisions with full history</div>
+          <div style="background: #eef4f5; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📄 Real PDF export, not browser print</div>
+          <div style="background: #eef4f5; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🔄 Draft → Approved → Sent → Accepted, with expiry alerts</div>
+          <div style="background: #eef4f5; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📋 Deal activity log</div>
+          <div style="background: #eef4f5; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📈 Probability-weighted pipeline forecast</div>
+        </div>
+      </div>
+
+      <!-- Grid section -->
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease; margin-top: 24px; background: #1a2e3e; border-radius: 12px; padding: 32px; color: white;">
+        <div style="font-family: Georgia, serif; font-size: 24px; font-weight: 700; margin-bottom: 12px;">Switchgear AND Grid — Not Just One Side of the Fence.</div>
+        <div style="font-size: 15px; color: rgba(255,255,255,0.85); line-height: 1.6; margin-bottom: 20px; max-width: 780px;">Grid Interconnection Advisor — CEA Grid Code compliance, ride-through protection, and SCADA sizing for the connection point itself, not just the panel.</div>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px;">
+          <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🔌 Beyond within-panel protection to the interconnection point</div>
+          <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📜 CEA Grid Code — Distribution / State / Central Transmission</div>
+          <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🛡️ Built-in LVRT/HVRT ride-through for embedded generation</div>
+          <div style="background: rgba(255,255,255,0.08); border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📡 SCADA-ready sizing (IEC 61850 / IEC 60870-5-104) before quoting</div>
+        </div>
+      </div>
+
+      <!-- Margin intelligence + compliance calendar -->
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 24px; margin-top: 24px;" data-grid="cols-2">
+        <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease; background: white; border: 1.5px solid rgba(58,70,83,0.2); border-radius: 12px; padding: 28px;">
+          <div style="font-family: Georgia, serif; font-size: 20px; font-weight: 700; margin-bottom: 10px;">See Your Margin, Not Just Your Quote.</div>
+          <div style="font-size: 14px; color: #374151; line-height: 1.6;">Margin and discount rollup by panel type and month, with editable per-shop cost norms — not hardcoded.</div>
+        </div>
+        <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.08s; background: white; border: 1.5px solid rgba(58,70,83,0.2); border-radius: 12px; padding: 28px;">
+          <div style="font-family: Georgia, serif; font-size: 20px; font-weight: 700; margin-bottom: 10px;">Never Miss a Renewal Again.</div>
+          <div style="font-size: 14px; color: #374151; line-height: 1.6;">Type-test, BG/PG, DISCOM-vendor, and GeM listing tracking with 45-day automatic alerts.</div>
+        </div>
+      </div>
+
+      <!-- International + roles -->
+      <div style="display: flex; flex-wrap: wrap; gap: 10px; margin-top: 24px;">
+        <div style="background: white; border: 1px solid rgba(58,70,83,0.2); border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #374151; flex: 1; min-width: 260px;">🌐 Quote in INR, USD, AED, EUR, SAR, or KES — live FX conversion and Incoterms built into the same quote engine.</div>
+        <div style="background: white; border: 1px solid rgba(58,70,83,0.2); border-radius: 8px; padding: 12px 16px; font-size: 13px; color: #374151; flex: 1; min-width: 260px;">🔐 Role-based logins (Admin/Sales/Engineering/Viewer) — every action attributed to the person who took it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PRODUCT DETAIL: EPC ===================== -->
+  <div id="epc" style="background: #f3eef8; padding: 72px 24px; border-top: 1px solid rgba(15,24,35,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div data-reveal="true" data-grid="detail" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start;">
+        <div>
+          <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #5b2a8c; margin-bottom: 10px;">🏗️ VoltEdge Path · Engineering &amp; Project Intelligence</div>
+          <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 16px;">Catch the deviation before the award — not after the failure.</div>
+          <div style="font-size: 15px; color: #374151; line-height: 1.6; margin-bottom: 24px;">Compare vendor bids against one spec, flag every clause-level deviation, generate the vendor-neutral spec that started it — in one linked thread. Built on real IEC 62271 / 60255-151 / 61439 mathematics and a knowledge base written for the specifier, not the manufacturer.</div>
+          <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 10px; margin-bottom: 28px;">
+            <div style="background: white; border: 1.5px solid #5b2a8c; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #5b2a8c;">&lt;1s</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Calc Response</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #5b2a8c; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #5b2a8c;">8</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Live RAG Files</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #5b2a8c; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #5b2a8c;">24</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Live Project Signals</div>
+            </div>
+            <div style="background: white; border: 1.5px solid #5b2a8c; border-radius: 7px; padding: 12px 8px; text-align: center;">
+              <div style="font-size: 22px; font-weight: 900; color: #5b2a8c;">5</div>
+              <div style="font-size: 10px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Modules</div>
+            </div>
+          </div>
+          <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #5b2a8c; margin-bottom: 12px;">Full Capability Range</div>
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 24px;">
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">⚖️ Technical Bid Evaluator</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📐 Equipment Specification Generator</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">⚡ Protection Coordination</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">📋 Project BOQ Generator</div>
+            <div style="background: white; border-radius: 6px; padding: 10px 12px; font-size: 13px; font-weight: 600;">🏗️ Single-Line Substation Design</div>
+          </div>
+          <div style="background: rgba(45,143,163,0.1); border: 1.5px solid #2d8fa3; border-radius: 8px; padding: 14px 16px; font-size: 13px; color: #185a66; line-height: 1.5; margin-bottom: 20px;">
+            <strong style="color: #2d8fa3;">Compliance built in:</strong> IEC 62271-100/-200/-103 · IEC 60255-151 · IEC 60909 · IEC 61439-1/-2 · IEC 61869-2 · IS 3043
+          </div>
+          <a href="{{ telHref }}" style="display: inline-block; background: #5b2a8c; color: white; font-size: 14px; font-weight: 700; padding: 12px 22px; border-radius: 7px;" style-hover="background: #d97941;">Schedule a Call</a>
+        </div>
+        <div data-detail-image="true" style="width: 100%; height: 420px; border-radius: 10px; overflow: hidden; border: 2px solid rgba(91,42,140,0.35);">
+          <div style="width: 100%; height: 100%; background: linear-gradient(135deg, #2a4d5f, #1a3d52); display: flex; align-items: center; justify-content: center; position: relative;">
+            <div style="color: rgba(255,255,255,0.5); font-size: 13px; text-align: center; padding: 20px;">images/epc-dashboard.jpg</div>
+            <img src="images/epc-dashboard.jpg" alt="VoltEdge Path dashboard" style="position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain;" onerror="this.style.display='none'"/>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== HOW IT WORKS ===================== -->
+  <div id="how-it-works" style="max-width: 1200px; margin: 0 auto; padding: 72px 24px;">
+    <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; margin-bottom: 8px;">How it works</div>
+    <div style="font-size: 16px; color: #4b5563; max-width: 640px; margin-bottom: 40px;">The same core flow runs across all products — with engineering rigor and pipeline automation built in.</div>
+<div data-grid="cols-3" style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;">
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease, transform 0.6s ease; background: white; border: 1.5px solid rgba(15,24,35,0.1); border-radius: 10px; padding: 28px; position: relative;">
+        <div style="font-family: Georgia, serif; font-size: 40px; font-weight: 900; color: #d97941; line-height: 1; margin-bottom: 14px;">1</div>
+        <div style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Send your specs or RFQ</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">DGA test values, load profiles, customer bills, or a tender document — whatever starts the job.</div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.1s, transform 0.6s ease 0.1s; background: white; border: 1.5px solid rgba(15,24,35,0.1); border-radius: 10px; padding: 28px;">
+        <div style="font-family: Georgia, serif; font-size: 40px; font-weight: 900; color: #d97941; line-height: 1; margin-bottom: 14px;">2</div>
+        <div style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">VoltEdge applies your standards</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">30 years of design rules, compliance specs, live material pricing, and margin rules run automatically — no manual lookups.</div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.2s, transform 0.6s ease 0.2s; background: white; border: 1.5px solid rgba(15,24,35,0.1); border-radius: 10px; padding: 28px;">
+        <div style="font-family: Georgia, serif; font-size: 40px; font-weight: 900; color: #d97941; line-height: 1; margin-bottom: 14px;">3</div>
+        <div style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Get a winning proposal</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">Spec, ROI, and bid strategy — ready to submit in hours instead of weeks.</div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.3s, transform 0.6s ease 0.3s; background: white; border: 1.5px solid rgba(15,24,35,0.1); border-radius: 10px; padding: 28px;">
+        <div style="font-family: Georgia, serif; font-size: 40px; font-weight: 900; color: #d97941; line-height: 1; margin-bottom: 14px;">4</div>
+        <div style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">The design holds up under real engineering scrutiny</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">Every proposal is backed by a deterministic calc engine, not AI guesswork — an itemized loss waterfall (soiling, shading, mismatch, cabling, inverter, transformer, each broken out separately), and a real IS 875 wind-load and foundation pull-out check with a pass/fail verdict. When a lender or client's engineer asks "how did you get this number," there's a traceable answer, not a black box.</div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.4s, transform 0.6s ease 0.4s; background: white; border: 1.5px solid rgba(15,24,35,0.1); border-radius: 10px; padding: 28px;">
+        <div style="font-family: Georgia, serif; font-size: 40px; font-weight: 900; color: #d97941; line-height: 1; margin-bottom: 14px;">5</div>
+        <div style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Margin is protected before the bid goes out</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">Your own quoted vendor rates — not a generic benchmark — drive every ₹ in the cost breakup, with a visible "rates last verified" badge so nothing goes out on stale pricing. Live commodity feeds (silver, copper, aluminium, steel) and automatic subsidy/PLI stacking surface margin most teams leave on the table.</div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.6s ease 0.5s, transform 0.6s ease 0.5s; background: white; border: 1.5px solid rgba(15,24,35,0.1); border-radius: 10px; padding: 28px;">
+        <div style="font-family: Georgia, serif; font-size: 40px; font-weight: 900; color: #d97941; line-height: 1; margin-bottom: 14px;">6</div>
+        <div style="font-size: 17px; font-weight: 700; margin-bottom: 8px;">Opportunities find you, not just the other way around</div>
+        <div style="font-size: 14px; color: #4b5563; line-height: 1.5;">A live SECI/NTPC/SJVN/DISCOM tender scanner flags new capacity before you go looking for it. Track a tender and it becomes a pipeline deal automatically — no manual re-entry between "saw the tender" and "we're bidding it."</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== FOUNDER ===================== -->
+  <div id="founder" style="background: #F8F6F2; padding: 80px 24px; border-top: 1px solid rgba(15,24,35,0.06);">
+    <div style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: 0.85fr 1.15fr; gap: 56px; align-items: center;">
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px) scale(0.97); transition: opacity 0.8s ease, transform 0.8s ease;">
+        <div style="width: 100%; aspect-ratio: 4/5; border-radius: 12px; overflow: hidden; border: 2px solid rgba(15,24,35,0.12); box-shadow: 0 16px 40px rgba(15,24,35,0.12); transition: box-shadow 0.3s ease;" style-hover="box-shadow: 0 22px 52px rgba(15,24,35,0.2);">
+          <x-import component-from-global-scope="image-slot" from="./image-slot.js" id="founder-photo" shape="rect" placeholder="Drop a photo of Yashwant Atre" hint-size="100%,100%" style="width:100%;height:100%;"></x-import>
+        </div>
+      </div>
+      <div data-reveal="true" style="opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease 0.1s, transform 0.7s ease 0.1s;">
+        <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #d97941; margin-bottom: 10px;">Founder</div>
+        <div style="font-family: Georgia, serif; font-size: 34px; font-weight: 700; margin-bottom: 6px;">Yashwant Atre</div>
+        <div style="font-size: 15px; font-weight: 600; color: #4b5563; margin-bottom: 22px;">Retired Professor &amp; HOD of Electrical Engineering · Veteran Electrical Consultant</div>
+        <div style="font-size: 15px; color: #374151; line-height: 1.7; margin-bottom: 24px; max-width: 620px;">Over 50 years in the electrical domain — as an educator shaping generations of engineers, and as a consultant across transformer, power quality, switchgear, solar, and EPC industries. VoltEdge exists to put that half-century of judgment into a system every manufacturer can run, not just the ones who trained under him.</div>
+        <div style="display: flex; gap: 10px; flex-wrap: wrap;">
+          <div style="background: white; border: 1px solid rgba(15,24,35,0.1); border-radius: 7px; padding: 10px 16px; transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15,24,35,0.12);">
+            <div style="font-size: 20px; font-weight: 900; color: #0F1823;">50+</div>
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Years in the Field</div>
+          </div>
+          <div style="background: white; border: 1px solid rgba(15,24,35,0.1); border-radius: 7px; padding: 10px 16px; transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15,24,35,0.12);">
+            <div style="font-size: 20px; font-weight: 900; color: #0F1823;">HOD</div>
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Electrical Engineering</div>
+          </div>
+          <div style="background: white; border: 1px solid rgba(15,24,35,0.1); border-radius: 7px; padding: 10px 16px; transition: transform 0.2s ease, box-shadow 0.2s ease;" style-hover="transform: translateY(-3px); box-shadow: 0 8px 20px rgba(15,24,35,0.12);">
+            <div style="font-size: 20px; font-weight: 900; color: #0F1823;">5</div>
+            <div style="font-size: 11px; font-weight: 700; text-transform: uppercase; color: #4b5563;">Industries Consulted</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== PROOF / METRICS ===================== -->
+  <div style="background: #0F1823; padding: 64px 24px;">
+    <div data-grid="cols-3" style="max-width: 1200px; margin: 0 auto; display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; text-align: center;">
+      <div>
+        <div data-countup="70" data-countup-prefix="" data-countup-suffix="%" style="font-family: Georgia, serif; font-size: 48px; font-weight: 900; color: #d97941;">0%</div>
+        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.75);">Time Saved, Best Case</div>
+      </div>
+      <div>
+        <div data-countup="50" data-countup-prefix="+" data-countup-suffix="%" style="font-family: Georgia, serif; font-size: 48px; font-weight: 900; color: #d97941;">+0%</div>
+        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.75);">Win Ratio Improvement</div>
+      </div>
+      <div>
+        <div data-countup="50" data-countup-prefix="" data-countup-suffix="+" style="font-family: Georgia, serif; font-size: 48px; font-weight: 900; color: #d97941;">0+</div>
+        <div style="font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.75);">Govt Tenders Auto-Tracked</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ===================== SIGNUP + CONTACT ===================== -->
+  <div id="contact" style="background: linear-gradient(135deg, #1a2e3e 0%, #2a3f50 50%, #1a2e3e 100%); padding: 72px 24px;">
+    <div style="max-width: 640px; margin: 0 auto; text-align: center;">
+      <div style="font-family: Georgia, serif; font-size: 30px; font-weight: 700; color: white; margin-bottom: 12px;">See VoltEdge on your own data</div>
+      <div style="font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.5; margin-bottom: 32px;">Leave your email and we'll reach out, or call now to schedule a live walkthrough.</div>
+
+      <sc-if value="{{ signedUp }}" hint-placeholder-val="{{ false }}">
+        <div style="background: rgba(45,143,163,0.15); border: 1.5px solid #2d8fa3; border-radius: 8px; padding: 18px; color: white; font-size: 15px; font-weight: 600;">Thanks — we'll be in touch shortly.</div>
+      </sc-if>
+      <sc-if value="{{ notSignedUp }}" hint-placeholder-val="{{ true }}">
+        <form onSubmit="{{ handleSignup }}" style="display: flex; gap: 10px; flex-wrap: wrap; justify-content: center; margin-bottom: 20px;">
+          <input type="email" required="{{ true }}" placeholder="you@company.com" value="{{ emailValue }}" onChange="{{ handleEmailChange }}" style="flex: 1; min-width: 240px; padding: 14px 16px; border-radius: 7px; border: 1.5px solid rgba(255,255,255,0.25); background: rgba(255,255,255,0.08); color: white; font-size: 15px;"/>
+          <button type="submit" style="background: #d97941; color: white; font-size: 15px; font-weight: 700; padding: 14px 24px; border-radius: 7px; border: none; cursor: pointer;" style-hover="background: #b8860b;">Notify Me</button>
+        </form>
+      </sc-if>
+
+      <div style="display: flex; align-items: center; justify-content: center; gap: 12px; margin-top: 12px;">
+        <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.15);"></div>
+        <div style="font-size: 12px; color: rgba(255,255,255,0.5); text-transform: uppercase; letter-spacing: 1px;">or</div>
+        <div style="flex: 1; height: 1px; background: rgba(255,255,255,0.15);"></div>
+      </div>
+
+      <a href="{{ telHref }}" style="display: inline-block; margin-top: 20px; background: transparent; border: 1.5px solid #2d8fa3; color: #2d8fa3; font-size: 15px; font-weight: 700; padding: 14px 26px; border-radius: 7px;" style-hover="background: #2d8fa3; color: white;">Schedule a Call — {{ phoneDisplay }}</a>
+    </div>
+  </div>
+
+  <!-- ===================== FOOTER ===================== -->
+  <div style="background: #0F1823; color: rgba(255,255,255,0.7); padding: 56px 24px 24px;">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <div data-grid="footer" style="display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 40px; margin-bottom: 40px;">
+        <div>
+          <div style="font-family: Georgia, serif; font-weight: 900; font-size: 34px; letter-spacing: 0.3px; margin-bottom: 10px;"><span style="color: white;">VoltEdge</span> <span style="color: #d97941;">Intelligence</span></div>
+          <div style="font-size: 13px; line-height: 1.6; max-width: 260px;">Autonomous AI platform helping electrical equipment manufacturers design faster with 30 years of expertise, built in.</div>
+        </div>
+        <div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: white; margin-bottom: 14px;">Products</div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+            <a href="#tx" style="color: rgba(255,255,255,0.7);">VoltEdge Shakti</a>
+            <a href="#pq" style="color: rgba(255,255,255,0.7);">Power Quality</a>
+            <a href="#variq" style="color: rgba(255,255,255,0.7);">VoltEdge Variq</a>
+            <a href="#solar" style="color: rgba(255,255,255,0.7);">VoltEdge Sol</a>
+            <a href="#sw" style="color: rgba(255,255,255,0.7);">VoltEdge Dhara</a>
+            <a href="#epc" style="color: rgba(255,255,255,0.7);">VoltEdge Path</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: white; margin-bottom: 14px;">Company</div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+            <a href="#founder" style="color: rgba(255,255,255,0.7);">Founder</a>
+            <a href="#how-it-works" style="color: rgba(255,255,255,0.7);">How it works</a>
+            <a href="#contact" style="color: rgba(255,255,255,0.7);">Contact</a>
+          </div>
+        </div>
+        <div>
+          <div style="font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: white; margin-bottom: 14px;">Contact</div>
+          <div style="display: flex; flex-direction: column; gap: 10px; font-size: 13px;">
+            <a href="{{ telHref }}" style="color: rgba(255,255,255,0.7);">{{ phoneDisplay }}</a>
+          </div>
+        </div>
+      </div>
+      <div style="border-top: 1px solid rgba(255,255,255,0.12); padding-top: 20px; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; font-size: 12px; color: rgba(255,255,255,0.45);">
+        <div><strong style="color: rgba(255,255,255,0.85);">VoltEdge Intelligence</strong> © 2026. All rights reserved.</div>
+        <div>Autonomous platform for transformer, power quality, electrical equipment, solar, and switchgear manufacturers.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{
+  &quot;ctaPhone&quot;: {&quot;editor&quot;: &quot;text&quot;, &quot;default&quot;: &quot;8149822160&quot;, &quot;tsType&quot;: &quot;string&quot;, &quot;section&quot;: &quot;Contact&quot;},
+  &quot;showProductDetails&quot;: {&quot;editor&quot;: &quot;boolean&quot;, &quot;default&quot;: true, &quot;tsType&quot;: &quot;boolean&quot;, &quot;section&quot;: &quot;Layout&quot;}
+}">
+class Component extends DCLogic {
+  state = {
+    email: '',
+    signedUp: false,
+  };
+
+  componentDidMount() {
+    // Hero entrance — retry a few times in case the DOM isn't painted yet
+    const revealHero = () => {
+      const heroText = document.querySelector('[data-hero-text]');
+      const heroImg = document.querySelector('[data-hero-image]');
+      let done = true;
+      if (heroText) { heroText.style.opacity = '1'; heroText.style.transform = 'translateY(0)'; }
+      else done = false;
+      if (heroImg) { heroImg.style.opacity = '1'; heroImg.style.transform = 'translateY(0) scale(1)'; }
+      else done = false;
+      return done;
+    };
+    [0, 50, 150, 300, 600, 1000].forEach((delay) => setTimeout(revealHero, delay));
+
+    // Scroll reveal: opacity + translateY
+    const revealEls = document.querySelectorAll('[data-reveal]');
+    if (revealEls.length && 'IntersectionObserver' in window) {
+      const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            entry.target.style.transform = 'translateY(0)';
+            revealObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      revealEls.forEach((el) => revealObserver.observe(el));
+    }
+
+    // Scroll reveal: opacity only (elements whose transform is owned by a hover effect)
+    const fadeEls = document.querySelectorAll('[data-reveal-fade]');
+    if (fadeEls.length && 'IntersectionObserver' in window) {
+      const fadeObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.style.opacity = '1';
+            fadeObserver.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      fadeEls.forEach((el) => fadeObserver.observe(el));
+    }
+
+    // Count-up numbers
+    const countEls = document.querySelectorAll('[data-countup]');
+    if (countEls.length && 'IntersectionObserver' in window) {
+      const countObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const el = entry.target;
+            const target = parseInt(el.getAttribute('data-countup'), 10) || 0;
+            const prefix = el.getAttribute('data-countup-prefix') || '';
+            const suffix = el.getAttribute('data-countup-suffix') || '';
+            const duration = 1000;
+            const startTime = performance.now();
+            const tick = (now) => {
+              const progress = Math.min((now - startTime) / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const val = Math.round(eased * target);
+              el.textContent = prefix + val + suffix;
+              if (progress < 1) requestAnimationFrame(tick);
+            };
+            requestAnimationFrame(tick);
+            countObserver.unobserve(el);
+          }
+        });
+      }, { threshold: 0.4 });
+      countEls.forEach((el) => countObserver.observe(el));
+    }
+  }
+
+  handleEmailChange(e) {
+    this.setState({ email: e.target.value });
+  }
+
+  handleSignup(e) {
+    e.preventDefault();
+    if (this.state.email) {
+      this.setState({ signedUp: true });
+    }
+  }
+
+  renderVals() {
+    const phone = this.props.ctaPhone ?? '8149822160';
+    return {
+      phoneDisplay: '\u260E ' + phone,
+      telHref: 'tel:' + phone,
+      emailValue: this.state.email,
+      handleEmailChange: (e) => this.handleEmailChange(e),
+      handleSignup: (e) => this.handleSignup(e),
+      signedUp: this.state.signedUp,
+      notSignedUp: !this.state.signedUp,
+      showDetails: this.props.showProductDetails ?? true,
+    };
+  }
+}
+
+</script>
+</body>
+</html>
