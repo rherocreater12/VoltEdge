@@ -1,4 +1,4 @@
-# VoltEdge — website (v2, with Founder section)
+# VoltEdge — website (v2, with Founder sect ion)
 
 Static single-page site for VoltEdge's product suite (Shakti, Vidyut, Variq, Sol, Dhara, Path) plus a Founder section for Yashwant Atre.
 
